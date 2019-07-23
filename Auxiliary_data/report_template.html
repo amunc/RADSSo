@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>{{ title }}</title>
+<style>
+
+    h2 {
+        font-size:11pt;
+    }
+    
+    h3 {
+        font-size:10pt;
+    }
+    
+    p{
+        font-size:8pt;
+    }
+    
+    .black{
+        background-color:black;
+        color:white;
+    }
+
+    @page {
+        size: a4 portrait;
+        
+        @frame header_wrapper {
+            -pdf-frame-content: header_wrapper;
+            left:10pt;
+            width: 570pt;
+            top:11pt;
+            height:80pt;
+            -pdf-frame-border: 1;
+            
+        }               
+
+        @frame header_frame {           /* Static Frame */
+            -pdf-frame-content: header_content;
+            left: 10pt;
+            width: 400pt;
+            top: 21pt; /*No tiene en cuenta el margen definido*/
+            height: 25pt;
+            
+        }
+		
+		@frame header_image {           /* Static Frame */
+            -pdf-frame-content: header_image;
+            left: 460pt;
+            width: 77pt;
+            top: 21pt; /*No tiene en cuenta el margen definido*/
+            height: 50pt;
+            
+        }
+        
+    @frame header_modelo {           /* Static Frame */
+            -pdf-frame-content: header_modelo;
+            left: 10pt;
+            width: 400pt;
+            top: 60 pt; /*No tiene en cuenta el margen definido*/
+            height: 20pt;
+         
+        }
+        
+    @frame header_target {           /* Static Frame */
+            -pdf-frame-content: header_target;
+            left: 410pt;
+            width: 170pt;
+            top: 60pt; /*No tiene en cuenta el margen definido*/
+            height: 20pt;
+
+         
+        }
+        
+    @frame header_data {           /* Static Frame */
+            -pdf-frame-content: header_data;
+            left: 10pt;
+            width: 570pt;
+            top: 100pt; /*No tiene en cuenta el margen definido*/
+            height: 20pt;
+
+         
+        }
+        
+    @frame content_frame_1 {           
+            left: 10pt;
+            width: 280pt;
+            top: 120pt; /*No tiene en cuenta el margen definido*/
+            height: 660pt;
+            -pdf-frame-border: 1;
+        }
+        
+    @frame content_frame_2 {           
+            left: 300pt;
+            width: 280pt;
+            top: 120pt; /*No tiene en cuenta el margen definido*/
+            height: 660pt;
+            -pdf-frame-border: 1;
+        }
+
+        
+    @frame footer_frame {           /* Another static Frame */
+            -pdf-frame-content: footer_content;
+            left: 10pt;
+            width: 570pt;
+            top: 801pt;
+            height: 30pt;
+            -pdf-frame-border: 1;
+        }
+    
+    }
+    
+    @page model_template {
+        size: a4 portrait;
+        margin: 21pt;
+        
+        @frame header_wrapper {
+            -pdf-frame-content: header_wrapper;
+            left:10pt;
+            width: 570pt;
+            top:11pt;
+            height:80pt;
+            -pdf-frame-border: 1;
+            
+        }               
+
+        @frame header_frame {           /* Static Frame */
+            -pdf-frame-content: header_content;
+            left: 10pt;
+            width: 400pt;
+            top: 21pt; /*No tiene en cuenta el margen definido*/
+            height: 25pt;
+            
+        }
+		
+		@frame header_image {           /* Static Frame */
+            -pdf-frame-content: header_image;
+            left: 460pt;
+            width: 77pt;
+            top: 21pt; /*No tiene en cuenta el margen definido*/
+            height: 50pt;
+            
+        }
+        
+    @frame header_modelo {           /* Static Frame */
+            -pdf-frame-content: header_modelo;
+            left: 10pt;
+            width: 400pt;
+            top: 60 pt; /*No tiene en cuenta el margen definido*/
+            height: 20pt;
+         
+        }
+        
+    @frame header_target {           /* Static Frame */
+            -pdf-frame-content: header_target;
+            left: 410pt;
+            width: 170pt;
+            top: 60pt; /*No tiene en cuenta el margen definido*/
+            height: 20pt;
+
+         
+        }
+        
+    @frame header_model_info {           /* Static Frame */
+            -pdf-frame-content: header_model_info;
+            left: 10pt;
+            width: 570pt;
+            top: 100pt; /*No tiene en cuenta el margen definido*/
+            height: 20pt;
+
+         
+        }
+        
+        
+    @frame accuracy_frame {           
+            -pdf-frame-content: accuracy_frame;
+            left: 10pt;
+            width: 130pt;
+            top: 120pt; /*No tiene en cuenta el margen definido*/
+            height: 80 pt;
+            -pdf-frame-border: 1;
+        }
+        
+    @frame ranking_frame {           
+            -pdf-frame-content: ranking_frame;
+            left: 10pt;
+            width: 130pt;
+            top: 220pt; 
+            height: 180pt;
+            -pdf-frame-border: 1;
+        }
+        
+     @frame parameters_info_frame{
+            -pdf-frame-content: parameters_info_frame;
+            left: 145pt;
+            width: 200pt;
+            top: 120pt; 
+            height: 80pt;
+            -pdf-frame-border: 1;
+     }   
+     
+     @frame parameters_image_frame {
+            -pdf-frame-content: parameters_image_frame;
+            left: 145pt;
+            width: 200pt;
+            top: 220pt; 
+            height: 180pt;
+            -pdf-frame-border: 1;
+     }
+                
+    @frame content_frame_1 {           
+            left: 360pt;
+            width: 210pt;
+            top: 120pt; /*No tiene en cuenta el margen definido*/
+            height: 80pt;
+            -pdf-frame-border: 1;
+        }
+        
+    @frame img_learning_1 {           /* Static Frame */
+            -pdf-frame-content: img_learning_1;
+            left: 360pt;
+            width: 210pt;
+            top: 220pt; /*No tiene en cuenta el margen definido*/
+            height: 180pt;
+            -pdf-frame-border: 1;
+        
+      }
+        
+    @frame metrics_model_info {           /* Static Frame */
+            -pdf-frame-content: metrics_model_info;
+            left: 10pt;
+            width: 570pt;
+            top: 420pt; /*No tiene en cuenta el margen definido*/
+            height: 20pt;
+        
+        }
+        
+    @frame metrics_model_train {           /* Static Frame */
+            -pdf-frame-content: metrics_model_train;
+            left: 10pt;
+            width: 225pt;
+            top: 440pt; /*No tiene en cuenta el margen definido*/
+            height: 60pt;
+            -pdf-frame-border: 1;
+        
+        }
+        
+        
+    @frame metrics_model_test{           /* Static Frame */
+            -pdf-frame-content: metrics_model_test;
+            left: 245pt;
+            width: 225pt;
+            top: 440pt; /*No tiene en cuenta el margen definido*/
+            height: 60pt;
+            -pdf-frame-border: 1;
+        
+        }
+        
+    @frame metrics_derived_confussion {           /* Static Frame */
+            -pdf-frame-content: metrics_derived_confussion;
+            left: 480pt;
+            width: 80pt;
+            top: 440pt; /*No tiene en cuenta el margen definido*/
+            height: 60pt;
+            -pdf-frame-border: 1;
+        
+        }
+        
+    @frame img_confussion_1 {           /* Static Frame */
+            -pdf-frame-content: img_confussion_1;
+            left: 10pt;
+            width: 225pt;
+            top: 520pt; /*No tiene en cuenta el margen definido*/
+            height: 400pt;         
+        }
+        
+    @frame img_confussion_2 {           /* Static Frame */
+            -pdf-frame-content: img_confussion_2;
+            left: 245pt;
+            width: 225pt;
+            top: 520pt; /*No tiene en cuenta el margen definido*/
+            height: 400pt;         
+        }
+    
+     @frame derived_confussion {           /* Static Frame */
+            -pdf-frame-content: derived_confussion;
+            left: 480pt;
+            width: 80pt;
+            top: 520pt; /*No tiene en cuenta el margen definido*/
+            height: 400pt;         
+        }
+
+        
+    @frame footer_frame {           /* Another static Frame */
+            -pdf-frame-content: footer_content;
+            left: 10pt;
+            width: 570pt;
+            top: 801pt;
+            height: 30pt;
+            -pdf-frame-border: 1;
+        }
+    
+    }
+    
+    
+    @page metrics_template {
+        size: a4 portrait;
+        margin: 21pt;
+        
+        @frame header_wrapper {
+            -pdf-frame-content: header_wrapper;
+            left:10pt;
+            width: 570pt;
+            top:11pt;
+            height:80pt;
+            -pdf-frame-border: 1;
+            
+        }               
+
+        @frame header_frame {           /* Static Frame */
+            -pdf-frame-content: header_content;
+            left: 10pt;
+            width: 400pt;
+            top: 21pt; /*No tiene en cuenta el margen definido*/
+            height: 25pt;
+            
+        }
+		
+		@frame header_image {           /* Static Frame */
+            -pdf-frame-content: header_image;
+            left: 460pt;
+            width: 77pt;
+            top: 21pt; /*No tiene en cuenta el margen definido*/
+            height: 50pt;
+            
+        }
+        
+    @frame header_modelo {           /* Static Frame */
+            -pdf-frame-content: header_modelo;
+            left: 10pt;
+            width: 400pt;
+            top: 60 pt; /*No tiene en cuenta el margen definido*/
+            height: 20pt;
+         
+        }
+        
+    @frame header_target {           /* Static Frame */
+            -pdf-frame-content: header_target;
+            left: 410pt;
+            width: 170pt;
+            top: 60pt; /*No tiene en cuenta el margen definido*/
+            height: 20pt;
+
+         
+        }
+        
+    @frame header_learning_info {           /* Static Frame */
+            -pdf-frame-content: header_learning_info;
+            left: 10pt;
+            width: 570pt;
+            top: 100pt; /*No tiene en cuenta el margen definido*/
+            height: 20pt;
+
+         
+        }
+        
+    @frame content_frame_metrics_by_label {           
+            left: 10pt;
+            width: 570pt;
+            top: 120pt; /*No tiene en cuenta el margen definido*/
+            height: 660pt;
+            -pdf-frame-border: 1;
+        }            
+        
+    @frame footer_frame {           /* Another static Frame */
+            -pdf-frame-content: footer_content;
+            left: 10pt;
+            width: 570pt;
+            top: 801pt;
+            height: 30pt;
+            -pdf-frame-border: 1;
+        }               
+    
+    }
+    
+</style>
+</head>
+<body>
+
+<!-- Resultados de la ejecucion -->
+
+<!-- Pagina 1 Informacion general -->
+
+<div id="header_wrapper">    
+</div>
+
+<div id="header_content">
+    <h2>&nbsp;&nbsp;&nbsp;&nbsp;{{title}} for Event: {{event}}</h2>
+</div>
+
+<div id="header_image">
+    <img src={{logo}} height="49pt" width="76pt" />
+</div>
+
+<div id="header_modelo">
+    <h3>&nbsp;&nbsp;&nbsp;&nbsp;Model: {{model}} </h3>
+</div>
+
+<div id="header_target">
+    <h3>Target: {{target}} </h3>
+</div>
+
+<div id="header_data">
+    <h2>Information about data managed </h2>
+</div>
+
+
+
+<!-- content -->
+
+{{observations_targets}}
+
+{{train_distribution_info}}
+
+{{test_distribution_info}}
+
+{{variables_summary}}
+
+<!-- Content for Static Frame 'footer_frame' -->
+<div id="footer_content">(c) - page <pdf:pagenumber>
+        of <pdf:pagecount>
+</div>
+
+
+
+<pdf:nexttemplate name="model_template" />
+<pdf:nextpage>
+<!-- Pagina 2 - Detalles del modelo y de los datos de entrenamiento y testeo -->
+
+<div id="header_wrapper">    
+</div>
+
+<div id="header_content">
+    <h3>&nbsp;&nbsp;&nbsp;&nbsp;{{title}} for Event: {{event}}</h2>
+</div>
+
+<div id="header_image">
+    <img src={{logo}} height="49pt" width="76pt" />
+</div>
+
+<div id="header_modelo">
+    <h3>&nbsp;&nbsp;&nbsp;&nbsp;Model: {{model}} </h3>
+</div>
+
+<div id="header_target">
+    <h3>Target: {{target}} </h3>
+</div>
+
+<div id="header_model_info">
+    <h2>Information about the obtained model </h2>
+</div>
+
+<div id="accuracy_frame">   
+    {{accuracy}}
+</div>
+
+<div id="ranking_frame">
+    {{models_ranking}}
+</div>
+
+<div id="parameters_info_frame">
+    {{model_info}}
+</div>
+
+<div id="parameters_image_frame">
+    <img src={{image_parameters_accuracy}} height="230pt" width="350pt" />
+</div>
+
+<!-- Content -->
+{{time_info}}
+
+<div id="img_learning_1">
+    <img src={{lc_0_0}}>
+</div>
+
+
+<div id="metrics_model_info">
+    <h2>Confusion matrices for the model </h2>
+</div>
+
+<div id="metrics_model_train">
+    </br>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <strong>Confusion matrix (Train)<strong> </p>
+</div>
+
+<div id="metrics_model_test">
+    </br>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <strong>Confusion matrix (Test)<strong> </p>
+</div>
+
+<div id="metrics_derived_confussion">
+    </br>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;
+    <strong> Micro Avg (Test) <strong> </p>
+</div>
+
+
+<div id="img_confussion_1">
+    <img src={{conf_train_img}}>
+</div>
+
+<div id="img_confussion_2">
+    <img src={{conf_test_img}}>
+</div>
+
+<div id="derived_confussion">
+    {{metrics_info}}
+</div>
+
+
+<!-- content -->
+
+<!-- Content for Static Frame 'footer_frame' -->
+<div id="footer_content"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<strong>RADSSo (c)</strong> - page <pdf:pagenumber>
+        of <pdf:pagecount>
+</div>
+
+
+
+<pdf:nexttemplate name="metrics_template" />
+<pdf:nextpage>
+<!-- Pagina 3 - Detalles del modelo y de los datos de entrenamiento y testeo -->
+
+<div id="header_wrapper">    
+</div>
+
+<div id="header_content">
+    <h3>&nbsp;&nbsp;&nbsp;&nbsp;{{title}} for Event: {{event}}</h2>
+</div>
+
+<div id="header_image">
+    <img src={{logo}} height="49pt" width="76pt" />
+</div>
+
+<div id="header_modelo">
+    <h3>&nbsp;&nbsp;&nbsp;&nbsp;Model: {{model}} </h3>
+</div>
+
+<div id="header_target">
+    <h3>Target: {{target}} </h3>
+</div>
+
+<div id="header_learning_info">
+    <h2>Metrics information by label </h2>
+</div>
+
+<!-- Metrics information -->
+
+{{metrics_by_label}}
+
+
+<!--div id="img_learning_2"-->
+    <!--img src={{lc_0_1}}-->
+<!--/div-->
+
+<!--div id="img_learning_3"-->
+    <!--img src={{lc_1_0}}-->
+<!--/div-->
+
+<!--div id="img_learning_4"-->
+    <!--img src={{lc_1_1}}-->
+<!--/div-->
+
+ 
+ </body>
+ </html>

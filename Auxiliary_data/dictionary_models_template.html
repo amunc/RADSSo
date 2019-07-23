@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<meta name="description" content="Summary template of models selected for problems">
+<meta name="author" content="Research Institute of Applied Sciences in Cybersecurity">
+<title>{{ title }}</title>
+<style>
+
+    h2 {
+        font-size:11pt;
+    }
+    
+    h3 {
+        font-size:10pt;
+    }
+    
+    p{
+        font-size:8pt;
+    }
+
+    @page {
+        size: a4 portrait;
+        
+        @frame header_wrapper {
+            -pdf-frame-content: header_wrapper;
+            left:10pt;
+            width: 570pt;
+            top:11pt;
+            height:80pt;
+            -pdf-frame-border: 1;
+            
+        }               
+
+        @frame header_frame {           /* Static Frame */
+            -pdf-frame-content: header_content;
+            left: 120pt;
+            width: 300pt;
+            top: 40pt; /*No tiene en cuenta el margen definido*/
+            height: 25pt;
+            
+        }
+        
+		
+		@frame header_image {           /* Static Frame */
+            -pdf-frame-content: header_image;
+            left: 460pt;
+            width: 77pt;
+            top: 21pt; /*No tiene en cuenta el margen definido*/
+            height: 50pt;
+            
+        }
+        
+       
+    @frame header_data {           /* Static Frame */
+            -pdf-frame-content: header_data;
+            left: 10pt;
+            width: 570pt;
+            top: 100pt; /*No tiene en cuenta el margen definido*/
+            height: 20pt;
+
+         
+        }
+        
+    @frame content_frame_1 {           
+            left: 10pt;
+            width: 280pt;
+            top: 120pt; /*No tiene en cuenta el margen definido*/
+            height: 660pt;
+            -pdf-frame-border: 1;
+        }
+    
+    @frame content_frame_2 {           
+            left: 300pt;
+            width: 280pt;
+            top: 120pt; /*No tiene en cuenta el margen definido*/
+            height: 660pt;
+            -pdf-frame-border: 1;
+        }
+
+        
+    @frame footer_frame {           /* Another static Frame */
+            -pdf-frame-content: footer_content;
+            left: 10pt;
+            width: 570pt;
+            top: 801pt;
+            height: 30pt;
+            -pdf-frame-border: 1;
+        }
+    
+    }
+    
+    
+</style>
+</head>
+<body>
+
+<!-- Resultados de la ejecucion -->
+
+<!-- Pagina 1 Informacion general -->
+
+<div id="header_wrapper">    
+</div>
+
+<div id="header_content">
+    <h2>&nbsp;&nbsp;&nbsp;&nbsp;{{title}}</h2>
+</div>
+
+<div id="header_image">
+    <img src={{logo}} height="49pt" width="76pt"/>
+</div>
+
+<div id="header_data">
+    <h2> Current Status of the Dictionary</h2>
+</div>
+
+
+
+<!-- content -->
+{{info}}
+
+
+<!-- Content for Static Frame 'footer_frame' -->
+<div id="footer_content">
+<p><br>&nbsp;&nbsp;&nbsp;&nbsp;
+   &nbsp;&nbsp;&nbsp;&nbsp; 
+   &nbsp;&nbsp;&nbsp;&nbsp; 
+   &nbsp;&nbsp;&nbsp;&nbsp; 
+   &nbsp;&nbsp;&nbsp;&nbsp; 
+   &nbsp;&nbsp;&nbsp;&nbsp; 
+   &nbsp;&nbsp;&nbsp;&nbsp; 
+   &nbsp;&nbsp;&nbsp;&nbsp; 
+   &nbsp;&nbsp;&nbsp;&nbsp; 
+   &nbsp;&nbsp;&nbsp;&nbsp; 
+   &nbsp;&nbsp;&nbsp;&nbsp; 
+   &nbsp;&nbsp;&nbsp;&nbsp;
+   &nbsp;&nbsp;&nbsp;&nbsp;
+   &nbsp;&nbsp;&nbsp;&nbsp; 
+   &nbsp;&nbsp;&nbsp;&nbsp; 
+   &nbsp;&nbsp;&nbsp;&nbsp; 
+   &nbsp;&nbsp;&nbsp;&nbsp; 
+   &nbsp;&nbsp;&nbsp;&nbsp; 
+   &nbsp;&nbsp;&nbsp;&nbsp; 
+   &nbsp;&nbsp;&nbsp;&nbsp; 
+   &nbsp;&nbsp;&nbsp;&nbsp; 
+   &nbsp;&nbsp;&nbsp;&nbsp; 
+   &nbsp;&nbsp;&nbsp;&nbsp; 
+   &nbsp;&nbsp;&nbsp;&nbsp;
+   &nbsp;&nbsp;&nbsp;&nbsp;
+   &nbsp;&nbsp;&nbsp;&nbsp; 
+   &nbsp;&nbsp;&nbsp;&nbsp; 
+   &nbsp;&nbsp;&nbsp;&nbsp; 
+   &nbsp;&nbsp;&nbsp;&nbsp;
+   <strong>RADSSo (c)</strong></p>
+</div>
+
+ </body>
+ </html>

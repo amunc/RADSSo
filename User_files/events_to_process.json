@@ -1,0 +1,2 @@
+{"Iris-Flower": {"discarded_features": ["discarded_1","discarded_n"], "relevant_features": ["sepal width (cm)"]},
+ "Generic-Flower": {"discarded_features": ["discarded_1","discarded_n"], "relevant_features": ["sepal width (cm)","petal length (cm)"]}}
