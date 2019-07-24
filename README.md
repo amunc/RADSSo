@@ -9,4 +9,7 @@ RADSSo makes use of :
 
 - RHOASo, a python module to compute the optimal parameters for the models. It can be found at https://github.com/amunc/RHOASo
 
+Before using RADSSo for the first time, check that you are running python 2.7 version and that you have the required dependencies. You can use the command:
+   pip install -r requirements.txt
+   
 For complete information about how to use RADSSo please check the RADSSo_user_manual.
