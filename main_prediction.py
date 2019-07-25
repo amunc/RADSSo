@@ -62,7 +62,7 @@ def prediction_function(BASE_PATH):
     
     '''Reading from conf.ini necessary variables for the prediction phase'''
     extension = 'csv' #sacarlo al conf.ini
-    name= config_parser.get(input_data_section,'event_name_feature')
+    name= auxf.decodify_using_enconding(config_parser.get(input_data_section,'event_name_feature'),enco)
     input_files_delimiter_not_catalogued_data = config_parser.get(prediction_section,'non_catalogued_data_csv_separator')
     maximum_number_of_files_to_catalogue= int(config_parser.get(prediction_section,'number_files_to_catalogue'))
     path_to_directory_with_input_files_to_catalogue = os.path.join(BASE_PATH, auxf.decodify_using_enconding(config_parser.get(prediction_section,'path_to_directory_input_files_to_catalogue'),enco))
