@@ -497,7 +497,18 @@ try:
                     path_to_directory_event_data = os.path.join(path_to_current_event_directory,'generated_data')            
                     auxf.create_directory(path_to_directory_event_data)
                     
-                    if (validation_mode == 'True'):
+                    if (validation_mode != 'True'):
+                        #move observation number column to front
+                        ordered_columns = list(df_catalogued_data.columns)
+                        ordered_columns.remove(observation_number)
+                        ordered_columns = [observation_number] + ordered_columns
+                        
+                        #save input data                        
+                        df_catalogued_data = df_catalogued_data[ordered_columns]
+                        df_catalogued_data = df_catalogued_data.sort_values(by=['obsnumber'])
+                        df_catalogued_data.to_csv(os.path.join(path_to_directory_event_data,'numbered_' + current_event + '_data_'+ target +'.csv'),index=False,sep=",",encoding='utf-8')
+                    
+                    elif (validation_mode == 'True'):
                         '''Splitting data in Training-Test and Validation datasets if validation_mode is True'''
                         validation_division_percentaje = float(config_parser.get(testing_section,'validation_division_percentaje'))                                
                         df_catalogued_data,df_validation = auxf.split_train_test_datasets(df_catalogued_data,target,validation_division_percentaje)
