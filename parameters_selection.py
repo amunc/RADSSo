@@ -52,7 +52,7 @@ def move_file_to_folder(file_name, base_path_folder, rute_folder_destination):
   shutil.move(rute_file,rute_folder_destination)
     
 def transform_dic_to_matrix(ac, max_pars):
-    matrix = np.zeros([max(max_pars)] * 2)
+    matrix = np.zeros([max(max_pars)+1] * 2)
     for point in ac:
         matrix[point] = ac[point]
     return matrix
@@ -183,7 +183,7 @@ def select_optimal_parameters_current_model(model_name,diccionario_modelos_sup,d
             depth = parameters['max_depth']
             estimators = parameters['n_estimators']
             acc=transform_dic_to_matrix(ac,max_pars)
-            resultados = plot_matrix(acc,max_pars[0],name,ruta_directorio_modelo_supervisado,formato)
+            resultados = plot_matrix(acc,max(max_pars)+1,name,ruta_directorio_modelo_supervisado,formato)
             selected_parameters = [int(depth),int(estimators)]
             report_dict[model_name]['parameters_plot'] = "'" + resultados + "'"            
         except Exception as e:
@@ -210,7 +210,7 @@ def select_optimal_parameters_current_model(model_name,diccionario_modelos_sup,d
             depth = parameters['max_depth']
             estimators = parameters['n_estimators']
             acc=transform_dic_to_matrix(ac,max_pars)
-            resultados = plot_matrix(acc,max_pars[0],name,ruta_directorio_modelo_supervisado,formato)
+            resultados = plot_matrix(acc,max(max_pars)+1,name,ruta_directorio_modelo_supervisado,formato)
             selected_parameters = [int(depth),int(estimators)]
             report_dict[model_name]['parameters_plot'] = "'" + resultados + "'"
         except Exception as e:
@@ -237,7 +237,7 @@ def select_optimal_parameters_current_model(model_name,diccionario_modelos_sup,d
             len_layer1 = parameters['hidden_layer_sizes'][0]
             len_layer2 = parameters['hidden_layer_sizes'][1]
             acc=transform_dic_to_matrix(ac,max_pars)
-            resultados = plot_matrix(acc,max_pars[0],name,ruta_directorio_modelo_supervisado,formato)
+            resultados = plot_matrix(acc,max(max_pars)+1,name,ruta_directorio_modelo_supervisado,formato)
             selected_parameters = [[int(len_layer1),int(len_layer2)],algorithm]
             report_dict[model_name]['parameters_plot'] = "'" + resultados + "'"
         except Exception as e:

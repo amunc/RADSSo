@@ -187,7 +187,7 @@ def recognize_available_events_and_variables_automatically(vector_with_fullpath_
             add_event = True
             if pd.isnull(event):
                 event = 'nan'
-            if event not in list_verified_events :
+            if event.decode(enco) not in list_verified_events :
                 for not_valid_char in list_of_not_valid_characters:
                     if(not_valid_char in event):
                         add_event = False

@@ -253,10 +253,10 @@ def get_trained_model(model_name,train_data,features,target,params_array,diccion
         modelo_creado = create_customized_ada(train_data, features, target, params_array[0])
     
     elif(model_name == diccionario_modelos_supervisado[3]):#Boosting
-        modelo_creado = create_customized_boosting(train_data,features,target, params_array[0]*2, params_array[1]*2)
+        modelo_creado = create_customized_boosting(train_data,features,target, params_array[0], params_array[1])
     
     elif(model_name == diccionario_modelos_supervisado[4]):#RandomForest
-        modelo_creado = create_customized_forest(train_data, features, target, params_array[0]*2, params_array[1]*2)
+        modelo_creado = create_customized_forest(train_data, features, target, params_array[0], params_array[1])
     
     elif(model_name == diccionario_modelos_supervisado[5]):#MLP
         modelo_creado = create_customized_mlp(train_data,features,target,params_array[0],params_array[1])
